@@ -1,0 +1,44 @@
+<html>
+<?php 
+
+
+?>
+
+<head>
+  <title>Play 29</title>
+  <link rel="stylesheet" type="text/css" href="/css/css-animation.css">
+  <link href="/css/main.css" type="text/css" rel="Stylesheet"/>
+  <link href="/css/simplemodal.css" type="text/css" rel="Stylesheet"/>
+  <link href="/css/card.css" type="text/css" rel="Stylesheet"/>
+</head>
+
+<body>
+<script type="text/javascript" src="/javascript/jquery-1.2.3.js"></script>
+<script type="text/javascript" src="/javascript/jquery.curvycorners.packed.js"></script>
+<script type="text/javascript" src="/javascript/init.js"></script>
+<script type="text/javascript" src="/javascript/handlers.js"></script>
+<script type="text/javascript" src="/javascript/game.js"></script>
+<script type="text/javascript" src="/javascript/jquery.simplemodal.js"></script>
+<script type="text/javascript">
+handlers.open_id = "<?php echo $open_id?>";
+handlers.user_nickname = "<?php echo $nickname?>";
+      game.gameKey = "<?php echo $game_key?>";
+    </script>
+    
+    <div class="logout">
+      <?php echo $open_id?> | 
+      <a href="<?php $logout_url?>">logout</a>
+    </div>
+    <br/>
+    
+<div id="stage"><!-- --></div>
+
+<script type="text/javascript" src="/javascript/twentynine.js"></script>
+<script type="text/javascript" src="/javascript/card_game.js"></script>
+<script type="text/javascript">
+  var cardgame = new CardGame();
+  cardgame.distribute();
+</script>
+
+</body>
+</html>

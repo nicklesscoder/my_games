@@ -1,0 +1,45 @@
+<html>
+	<head>
+		{% block title %}
+			<title>Play 29, the great Indian card game</title>
+		{% endblock %}
+		<link href="/css/main.css" type="text/css" rel="Stylesheet"/>
+		<link href="/css/simplemodal.css" type="text/css" rel="Stylesheet"/>
+		{% block css %}
+		{% endblock %}
+	</head>
+	<body>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	    <script type="text/javascript" src="/javascript/init.js"></script>
+	    <script type="text/javascript" src="/javascript/handlers.js"></script>
+    	{% block script %}
+    	{% endblock %}
+    	{% block header %}
+    	{% endblock %}
+	    
+	    {% if has_user %}
+	    	 <div class="logout">
+		    	{{user.email()|escape}} |  <a href="{{logout_url}}">logout</a>
+		    </div>
+	    {% else %}
+			<div class="logout">
+		    	<a href="{{login_url}}">login</a>
+		    </div>    
+		{% endif %}
+	    	
+	   
+	    <br/>
+	    {% block maincontent %}
+	    <div class="{{mainContentClass}} corners">
+	    {% block logo %}
+	    {% endblock %}
+	    {% block content %}
+	    {% endblock %}
+	    <br/>
+	    </div>
+	    {% endblock %}
+	
+	    {% block footer %}
+	    {% endblock %}
+    </body>
+</html>

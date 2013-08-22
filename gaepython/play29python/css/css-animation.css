@@ -1,0 +1,36 @@
+#stage {
+  width:800px;
+  height:800px;
+}
+
+#felt {
+  position: relative;
+  margin: 0 0 0 200px;
+  height: 600px;
+
+  background: green;
+  background: green -webkit-repeating-linear-gradient(bottom right, rgba(255,255,255,0), rgba(255,255,255,0) 80px, rgba(255,255,255,0.2) 80px, rgba(255,255,255,0.2) 150px);
+  background: green -moz-repeating-linear-gradient(bottom right, rgba(255,255,255,0), rgba(255,255,255,0) 80px, rgba(255,255,255,0.2) 80px, rgba(255,255,255,0.2) 150px);
+  background: green -o-repeating-linear-gradient(bottom right, rgba(255,255,255,0), rgba(255,255,255,0) 80px, rgba(255,255,255,0.2) 80px, rgba(255,255,255,0.2) 150px);
+  background: green -ms-repeating-linear-gradient(bottom right, rgba(255,255,255,0), rgba(255,255,255,0) 80px, rgba(255,255,255,0.2) 80px, rgba(255,255,255,0.2) 150px);
+  background: green repeating-linear-gradient(bottom right, rgba(255,255,255,0), rgba(255,255,255,0) 80px, rgba(255,255,255,0.2) 80px, rgba(255,255,255,0.2) 150px);
+
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+}
+
+#felt div {
+  position: absolute;
+  left: -140px;
+  top: 100px;
+  z-index: 0;
+
+  -webkit-transition-property: left, top, -webkit-transform;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out, ease-out, ease-in-out;
+
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+}
+
+

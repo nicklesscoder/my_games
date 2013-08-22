@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <?php 
+    $open_id = "my open id";
+    $nickname = "my nickname";
+    $logout_url = "http://logout.com";
+    ?>
+    <title>Play 29</title>
+    
+    <link href="/css/main.css" type="text/css" rel="Stylesheet"/>
+    <link href="/css/simplemodal.css" type="text/css" rel="Stylesheet"/>
+    
+    
+  </head>
+  <body>
+    <script type="text/javascript" src="/javascript/jquery-1.2.3.js"></script>
+    <script type="text/javascript" src="/javascript/jquery.curvycorners.packed.js"></script>
+    <script type="text/javascript" src="/javascript/init.js"></script>
+    <script type="text/javascript" src="/javascript/handlers.js"></script>
+    <script type="text/javascript" src="/javascript/jquery.simplemodal.js">
+      </script>
+    <script type="text/javascript">
+    handlers.open_id = "<?php echo $open_id?>";
+    handlers.user_nickname = "<?php echo $nickname?>";
+    </script>
+    
+    <div class="logout">
+      <?php echo $open_id?> | 
+      <a href="<?php $logout_url?>">logout</a>
+    </div>
+    <br/>
+    
+    <div class="mainContent corners">
+    
+      <div class="logo">
+        <img src="/images/cards/14.png"/>
+        <span>Play 29!<br/> The great Indian card game</span>
+      </div>
+
+    
+      <div class="help">
+        <a id="whatIsGame">(How to play 29?)</a>
+      </div>
+      <div id="whatIsGameDialog" class="dialogContent">
+        <div class="dialogTitle">What is Blitz Chess?</div>
+        <div class="dialogBody">
+          Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine 
+          Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine 
+          Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine 
+          <br/>
+          <br/>
+         Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine 
+          Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine 
+          Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine <br/>
+          <br/>
+          Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine 
+          Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine 
+          Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine Twenty nine 
+        </div>
+        <div  class="buttonBar">
+          <a class="btn" id="closeModal">OK</a>
+        </div>
+      </div>
+      <div class="menu">
+        <a id="playSingle">Play with Computers</a>
+        <div class="subtext">
+          play with and against AI
+        </div>
+      </div>
+      <div class="menu top">
+        <a id="enterLobby">Multiplayer Lobby</a>
+        <div class="subtext">
+          enter the multiplayer lobby
+        </div>
+      </div>
+    <br/>
+    </div>
+    
+
+    
+    
+  </body>
+</html>

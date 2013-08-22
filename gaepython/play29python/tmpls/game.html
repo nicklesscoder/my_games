@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/css/css-animation.css"/>
+  <link href="/css/main.css" type="text/css" rel="Stylesheet"/>
+  
+ {% endblock %}
+{% block content %}
+  <div id="stage" ></div>
+  <div id="bidDialog">
+	<div id="bidSlider"></div>
+	<input id="bidButton" type="submit" value="bid 17" />
+	<input id="passButton" type="submit" value="Pass" />
+  </div>
+  
+  <div id="bidShowDialog">
+  	<p><span id="bidOwner"></span> bid <span id="bidValue"></span></p>
+  </div>
+
+  <div id="setColorDialog">
+  	<img src="/images/cards/5c.png" class="colorCard" id="colorCard_c">
+  	<img src="/images/cards/5d.png" class="colorCard" id="colorCard_d">
+  	<img src="/images/cards/5h.png" class="colorCard" id="colorCard_h">
+  	<img src="/images/cards/5s.png" class="colorCard" id="colorCard_s">
+  </div>
+
+<script type="text/javascript" src="/javascript/twentynine.js"></script>
+<script type="text/javascript" src="/javascript/game.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	game.setAllData({{ current_user.uid }}, jQuery.parseJSON('{{ game_data }}'));
+	
+	  $(function() {
+	    $( "#bidSlider" ).slider({
+	      range: "max",
+	      min: 17,
+	      max: 29,
+	      value: 17,
+	      slide: function( event, ui ) {
+	    	  $( "#bidButton" ).button( "option", "label", "bid " + ui.value );
+	      }
+	    });
+	  });
+	  
+	  $(function() {
+		    $( "#passButton" )
+		      .button()
+		      .click(function( event ) {
+		        event.preventDefault();
+		        game.bid(-1);
+		        $( "#bidDialog" ).dialog( "close" );
+		      });
+		  });
+
+	  $(function() {
+		    $( "#bidButton" )
+		      .button()
+		      .click(function( event ) {
+		        event.preventDefault();
+		        game.bid($( "#bidSlider" ).slider( "option", "value" ));
+		        $( "#bidDialog" ).dialog( "close" );
+		      });
+		  });
+	  
+	  $(function() {
+		    $( "#bidDialog" ).dialog({
+		    	dialogClass: "no-close",
+		    	title: "Your Bid",
+		    	modal: true,
+		    	resizable: false,
+		    	autoOpen: false,
+		    	closeOnEscape: false
+		    });
+		  });
+
+	  $(function() {
+		    $( "#bidShowDialog" ).dialog({
+		    	dialogClass: "no-close",
+		    	title: "Player Bid",
+		    	modal: true,
+		    	resizable: false,
+		    	autoOpen: false,
+		    	closeOnEscape: false
+		    });
+		  });
+
+	  $(function() {
+		    $( "#setColorDialog" ).dialog({
+		    	dialogClass: "no-close",
+		    	title: "Set Color",
+		    	modal: true,
+		    	resizable: false,
+		    	autoOpen: false,
+		    	closeOnEscape: false,
+		    	minWidth: 400
+		    });
+		  });
+	  
+	  $('.colorCard').click(function(){
+		  var colorCardId = $(this).attr('id');
+		  var suit = colorCardId.charAt(colorCardId.length - 1);
+		  $( "#setColorDialog" ).dialog( "close" );
+		  game.setColor(suit);
+			
+		});
+	
+});
+  //var cardgame = new CardGame(jQuery.parseJSON('{{ game_data }}'));
+  //cardgame.distribute();
+</script>
+
+
+</script>
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    {% block title %}
+    <title>Blitz, the real-time ajax chess server</title>
+    {% endblock %}
+    <link href="/css/main.css" type="text/css" rel="Stylesheet"/>
+     <link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/eggplant/jquery-ui.css" type="text/css"  rel="stylesheet"/>
+    {% block css %}
+    {% endblock %}
+  	<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+ 	 <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript" src="/javascript/handlers.js"></script>
+    <script type="text/javascript" src="/javascript/init.js"></script>
+  </head>
+  <body>
+    {% block script %}
+    {% endblock %}
+
+    {% block header %}
+    {% endblock %}
+    <br/>
+    {% block maincontent %}
+    <div>
+    {% block logo %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+    <br/>
+    </div>
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
+    <div id="fb-root"></div>
+    <script type="text/javascript" src="//connect.facebook.net/en_US/all.js"></script>
+    
+    <script>
+	 window.fbAsyncInit = function() {
+		  FB.init({
+		    appId      : '{{ facebook_app_id}}', // App ID
+		    channelUrl : '{{ channel_path }}', // Channel File
+		    status     : true, // check login status
+		    cookie     : true, // enable cookies to allow the server to access the session
+		    xfbml      : true  // parse XFBML
+		  });
+	 };
+
+		  
+	</script>
+  </body>
+</html>
